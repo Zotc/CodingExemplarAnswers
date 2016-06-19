@@ -28,7 +28,7 @@ if(strpos(strtolower($str), 'superman')===false) {
 <strong>Question 2</strong>
 
 A client has called and said that they're noticing performance problems on their database when searching for a user by email address. You've checked, and the following query is running:<br>
-```mysql
+```sql
 SELECT * FROM users WHERE email = 'user@test.com';
 ```
 You run the EXPLAIN command and get the following results:<br>
@@ -43,7 +43,7 @@ Offer a theory as to why the performance is slow.
 ****************************************************************************************************
 <strong>Answer:</strong>
 we can create index for field email, because table have not any indexes, and MySql will do full scan of this table. if we add index for field email - Mysql will use this and query will be faster. i think email of users will have unique values<br>
-```mysql
+```sql
 ALTER TABLE  `users` ADD UNIQUE (`email`);
 ```
 
@@ -78,16 +78,16 @@ if (password_verify($clearPassword, $hash)) {
 You're given a sorted index array that contians no keys. The array contains only integers, and your task is to identify whether or not the integer you're looking for is in the array. Write a function that searches for the integer and returns true or false based on whether the integer is present. Describe how you arrived at your solution.<br>
 
 <strong>Answer</strong>
-PHP have a good function, called in_array(checked_value, array)
+PHP have a good function, called in_array(checkedValue, ourArray)<br>
 so, solution for this question look like this:
 
 ```php
 $checkedValue=6;
 $ourArray=array(1,2,4,6,7,10,13,17,33);
 
-if(in_array($checkedValue,$ourArray)){
-    echo "Array has value ".$checkedValue." ";
+if(in_array($checkedValue,$ourArray)) {
+    echo "Array has value ".$checkedValue;
 } else {
-    echo "Array has not value ".$checkedValue." ";
+    echo "Array has not value ".$checkedValue;
 }
 ```
