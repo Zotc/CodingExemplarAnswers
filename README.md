@@ -91,3 +91,18 @@ if(in_array($checkedValue,$ourArray)) {
     echo "Array has not value ".$checkedValue;
 }
 ```
+<hr>
+<strong>Question 5</strong>
+
+During a large data migration, you get the following error: Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). You've traced the problem to the following snippet of code:
+<br>
+```php
+$stmt = $pdo->prepare('SELECT * FROM largeTable');
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach ($results as $result) {
+    // manipulate the data here
+}
+```
+Refactor this code so that it stops triggering the memory error.
+<strong>Answer</strong>
