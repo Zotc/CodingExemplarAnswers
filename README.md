@@ -5,7 +5,7 @@ This is just answers from this test:https://gist.github.com/brandonsavage/65f413
 
 You've been tasked with identifying a string that contains the word "superman" (case insensitive). You've written the following code:
 <br>
-```
+```php
 <?php
 if(!strpos(strtolower($str), 'superman')) {
     throw new Exception;
@@ -16,7 +16,7 @@ QA has come to you and said that this works great for strings like "I love super
 ****************************************************************************************************
 <strong>Answer:</strong>
 you need check strpos answer with === because if 'superman' will located in a first position strpos will return 0 and it will be recognized as FALSE, if strpos can not find string - it will return FALSE, so, answer will be or False or something number starting from 0
-```
+```php
 <?php
 if(strpos(strtolower($str), 'superman')===false) {
     throw new Exception;
@@ -28,7 +28,7 @@ if(strpos(strtolower($str), 'superman')===false) {
 <strong>Question 2</strong>
 
 A client has called and said that they're noticing performance problems on their database when searching for a user by email address. You've checked, and the following query is running:<br>
-```
+```mysql
 SELECT * FROM users WHERE email = 'user@test.com';
 ```
 You run the EXPLAIN command and get the following results:<br>
@@ -43,7 +43,7 @@ Offer a theory as to why the performance is slow.
 ****************************************************************************************************
 <strong>Answer:</strong>
 we can create index for field email, because table have not any indexes, and MySql will do full scan of this table. if we add index for field email - Mysql will use this and query will be faster. i think email of users will have unique values<br>
-```
+```mysql
 ALTER TABLE  `users` ADD UNIQUE (`email`);
 ```
 
@@ -59,7 +59,7 @@ password_hash();  - create hash for password<br>
 password_verify(); - that the given hash matches the given password<br>
 <br>
 as example see next code<br>
-```
+```php
 <?php
 $clearPassword="qwerty";
 // PASSWORD_BCRYPT - is a recomended algoritm of pasword hashing
