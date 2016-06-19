@@ -11,6 +11,7 @@ You've been tasked with identifying a string that contains the word "superman" (
 if(!strpos(strtolower($str), 'superman')) {
     throw new Exception;
 }
+?>
 </code><br>
 QA has come to you and said that this works great for strings like "I love superman", but an exception is generated for strings like "Superman is awesome!", which should not happen. Explain why this occurs, and show how you would solve this issue (you must use strpos() in your answer).
 ****************************************************************************************************
@@ -21,6 +22,7 @@ you need check strpos answer with === because if 'superman' will located in a fi
 if(strpos(strtolower($str), 'superman')===false) {
     throw new Exception;
 }
+?>
 </code>
 <hr>
 <strong>Question 2</strong>
@@ -44,3 +46,29 @@ we can create index for field email, because table have not any indexes, and MyS
 <code>
 ALTER TABLE  `users` ADD UNIQUE (`email`)
 </code>
+<hr>
+<strong>Question 3</strong>
+Starting with PHP 5.5, what is the recommended way to hash user passwords? Show some code that illustrates how you would hash a user's password, and also how you would check that a password supplied by a user matches the password on file.
+
+If your client cannot upgrade to PHP 5.5, and you have to hash passwords using existing PHP libraries, what is one library/package that makes this easy?
+
+<strong>Answer</strong>
+starting with PHP 5.5 is recomended use included hashing function<br>
+password_hash();  - create hash for password<br>
+password_verify(); - that the given hash matches the given password<br>
+<br>
+as example see next code<br>
+<code>
+<?php
+$clearPassword="qwerty";
+// PASSWORD_BCRYPT - is a recomended algoritm of pasword hashing
+$hash = password_hash($clearPassword,PASSWORD_BCRYPT);
+
+if (password_verify($clearPassword, $hash)) {
+    echo 'Password is valid!';
+} else {
+    echo 'Invalid password.';
+}
+?>
+</code>
+<hr>
