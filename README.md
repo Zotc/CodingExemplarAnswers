@@ -62,7 +62,7 @@ as example see next code<br>
 ```php
 <?php
 $clearPassword="qwerty";
-// PASSWORD_BCRYPT - is a recomended algoritm of pasword hashing
+// PASSWORD_BCRYPT - is a recommended algorithm of password hashing
 $hash = password_hash($clearPassword,PASSWORD_BCRYPT);
 
 if (password_verify($clearPassword, $hash)) {
@@ -73,3 +73,21 @@ if (password_verify($clearPassword, $hash)) {
 ?>
 ```
 <hr>
+<strong>Question 4</strong>
+
+You're given a sorted index array that contians no keys. The array contains only integers, and your task is to identify whether or not the integer you're looking for is in the array. Write a function that searches for the integer and returns true or false based on whether the integer is present. Describe how you arrived at your solution.<br>
+
+<strong>Answer</strong>
+PHP have a good function, called in_array(checked_value, array)
+so, solution for this question look like this:
+
+```php
+$checkedValue=6;
+$ourArray=array(1,2,4,6,7,10,13,17,33);
+
+if(in_array($checkedValue,$ourArray)){
+    echo "Array has value ".$checkedValue." ";
+} else {
+    echo "Array has not value ".$checkedValue." ";
+}
+```
