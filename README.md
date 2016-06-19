@@ -106,3 +106,12 @@ foreach ($results as $result) {
 ```
 Refactor this code so that it stops triggering the memory error.
 <strong>Answer</strong>
+in a row $results = $stmt->fetchAll(PDO::FETCH_ASSOC); all rows of resoult will load into  variable $results, if resoult of select has many rows - we can have error - allowed memory size of...
+so, solution for this problem you will see below
+```php
+$stmt = $pdo->prepare('SELECT * FROM largeTable');
+$stmt->execute();
+while ($result = $stmt->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
+    // manipulate the data here
+}
+```
