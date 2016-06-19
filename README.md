@@ -5,13 +5,13 @@ This is just answers from this test:https://gist.github.com/brandonsavage/65f413
 
 You've been tasked with identifying a string that contains the word "superman" (case insensitive). You've written the following code:
 <br>
-<pre>
+
 <?php
 if(!strpos(strtolower($str), 'superman')) {
     throw new Exception;
 }
 ?>
-</pre>
+
 QA has come to you and said that this works great for strings like "I love superman", but an exception is generated for strings like "Superman is awesome!", which should not happen. Explain why this occurs, and show how you would solve this issue (you must use strpos() in your answer).
 ****************************************************************************************************
 <strong>Answer:</strong>
